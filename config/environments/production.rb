@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 
-config.action_mailer.default_url_options = { host: 'morning-meadow-17045.herokuapp.com' }
+config.action_mailer.default_url_options = { host: 'intense-taiga-11926.herokuapp.com' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
