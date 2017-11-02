@@ -35,11 +35,23 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @blog = @comment.blog
   end
+  
+  def update
+    #binding.pry
+    set_comment
+    @comment.update(comment_params)
+    redirect_to blog_path(@comment.blog), notice: "コメントを更新しました"
+  end
 
 
   private
     # ストロングパラメーター
     def comment_params
       params.require(:comment).permit(:blog_id, :content)
+    end
+    
+    def set_comment
+      #ブログのどのコメントの情報かを取得する
+      @comment=Comment.find(params[:id])
     end
 end
