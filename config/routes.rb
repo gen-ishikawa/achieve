@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users, controllers: {
@@ -7,6 +11,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
+  resources :users, only: [:index]
+
+  resources :relationships, only: [:create, :destroy]
 
   resources :blogs do
     resources :comments
@@ -20,6 +27,7 @@ Rails.application.routes.draw do
   end
   
   resources :poems, only: [:index, :show]
+  
   
   root 'top#index'
   
