@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'relationships/create'
+  #get 'relationships/create'
 
-  get 'relationships/destroy'
+  #get 'relationships/destroy'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
