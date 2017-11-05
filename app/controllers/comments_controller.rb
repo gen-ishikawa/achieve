@@ -13,6 +13,11 @@ class CommentsController < ApplicationController
       else
         format.html { render :new }
       end
+      unless @comment.blog.user_id == current_user.id
+          Pusher.trigger("user_#{@comment.blog.user_id}_channel", 'comment_created', {
+            message: 'あなたの作成したブログにコメントが付きました'
+          })
+      end
     end
   end
   
