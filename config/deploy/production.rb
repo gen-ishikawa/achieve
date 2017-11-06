@@ -59,5 +59,5 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
-server 'EC2のIPアドレス', user: 'ishikawa', roles: %w{ishikawa db web}
+server '54.92.98.70', user: 'ishikawa', roles: %w{app db web}
 set :ssh_options, keys: '/home/ubuntu/.ssh/id_rsa'
