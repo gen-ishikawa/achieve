@@ -2,17 +2,21 @@
   <h2>ユーザー</h2>
   <% @users.each do |user| %>
       <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
+        <div class="card" style="width: 20rem;">
+         <div class="card-block">
           <%= profile_img(user) %>
           <%= link_to user_path(user) do %>
-            <h4><strong><%= user.name %></strong></h4>
+            <h4 class="card-title"><strong><%= user.name %></strong></h4>
           <% end %>
-          <%= user.email %>
+          <p class="card-text"><%= user.email %></p>
           <% if user.id != current_user.id %>
             <div class="item">
               <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
             </div>
             <%= render partial: 'follow_form', locals: { user: user } if signed_in?   %>
           <% end %>
+         </div>
+        </div>
       </div>
   <% end %>
 </div>
