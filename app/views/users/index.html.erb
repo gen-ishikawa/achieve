@@ -2,6 +2,7 @@
   <h2>ユーザー</h2>
   <% @users.each do |user| %>
       <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
+        <div class="container-fluid"><br>
           <%= profile_img(user) %>
           <%= link_to user_path(user) do %>
             <h4><strong><%= user.name %></strong></h4>
@@ -13,6 +14,7 @@
             </div>
             <%= render partial: 'follow_form', locals: { user: user } if signed_in?   %>
           <% end %>
+        </div>
       </div>
   <% end %>
 </div>
